@@ -34,3 +34,19 @@ def time_to_str(time_obj):
         if str_to_time(time_obj):
             return time_obj
         return None
+
+
+def pretty_string_time(time_obj):
+    try:
+        return '{}:{} - {}:{}'.format(
+            time_obj['start']['hours'],
+            time_obj['start']['minutes'],
+            time_obj['end']['hours'],
+            time_obj['end']['minutes']
+        )
+    except (ValueError, IndexError, AttributeError):
+        return None
+
+
+def pretty_string_name(string):
+    return string.replace('_', ' ').title()
