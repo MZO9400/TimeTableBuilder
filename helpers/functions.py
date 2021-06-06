@@ -1,4 +1,4 @@
-def get_time(time):
+def str_to_time(time):
     try:
         time_arr = time.split('time')[1][1:-1].split(',')
         time_arr = [
@@ -18,4 +18,17 @@ def get_time(time):
         return time_obj
     except (ValueError, IndexError, AttributeError):
         print("Time string malformed")
+        return None
+
+
+def time_to_str(time_obj):
+    try:
+        return 'time(:({}, {}), :({}, {}))'.format(
+            time_obj['start']['hours'],
+            time_obj['start']['minutes'],
+            time_obj['end']['hours'],
+            time_obj['end']['minutes'],
+        )
+    except (ValueError, IndexError, AttributeError):
+        print("Time object is malformed")
         return None
