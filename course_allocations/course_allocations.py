@@ -4,7 +4,7 @@ prolog = pyswip.Prolog()
 prolog.consult('./knowledgebase.pl')
 
 
-def fetch(
+def query(
         room="ROOM",
         day="DAY",
         section="SECTION",
@@ -12,6 +12,6 @@ def fetch(
         instructor="INSTRUCTOR",
         time="TIME"
 ):
-    query = 'course_allocation({section}, {course}, {instructor}, {time}, {day}, {room})' \
+    query_string = 'course_allocation({section}, {course}, {instructor}, {time}, {day}, {room})' \
         .format(course=course, section=section, instructor=instructor, time=time, day=day, room=room)
-    return prolog.query(query)
+    return prolog.query(query_string)
