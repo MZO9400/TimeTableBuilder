@@ -44,20 +44,3 @@ course_allocation(bscs_6B, technical_writing_and_presentation_skills, tipu_ismai
 course_allocation(bscs_6B, digital_image_processing_lab, mariyam_bibi, time(:(8, 45), :(11, 45)), thursday, oclab3).
 course_allocation(bscs_6B, technical_writing_and_presentation_skills, tipu_ismail, time(:(13, 15), :(14, 45)), thursday, xc3).
 course_allocation(bscs_6B, artificial_intelligence, faima_abbassi, time(:(14, 45), :(16, 15)), thursday, xc3).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Q1
-classes(ROOM, SECTION, COURSE, INSTRUCTOR, TIME, DAY):-
-                course_allocation(SECTION, COURSE, INSTRUCTOR, TIME, DAY, ROOM).
-
-% Q2
-schedule_on_day(ROOM, DAY, SECTION, COURSE, INSTRUCTOR, TIME):-
-                      course_allocation(SECTION, COURSE, INSTRUCTOR, TIME, DAY, ROOM).
-
-% Q3
-time_slot(ROOM, TIME, DAY):-
-                course_allocation(_, _, _, TIME, DAY, ROOM).
-
-% Q4
-instructors(ROOM, INSTRUCTOR):-
-                course_allocation(_, _, INSTRUCTOR, _, _, ROOM).
