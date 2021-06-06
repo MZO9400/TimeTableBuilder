@@ -26,14 +26,10 @@ def schedule(class_name, day="DAY"):
 
 # Q3
 def time_slots(class_name):
-    return list(
-        set(
-            [
-                {'TIME': str_to_time(r['TIME']), 'DAY': r['DAY']}
-                for r in query(room=class_name)
-            ]
-        )
-    )
+    return [
+        {'TIME': str_to_time(r['TIME']), 'DAY': r['DAY']}
+        for r in query(room=class_name)
+    ]
 
 
 # Q4
