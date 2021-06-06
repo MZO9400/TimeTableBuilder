@@ -48,11 +48,11 @@ course_allocation(bscs_6B, artificial_intelligence, faima_abbassi, time(14:45, 1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Q1
 classes(ROOM, SECTION, COURSE, INSTRUCTOR, TIME, DAY):-
-                course_allocation(SECION, COURSE, INSTRUCTOR, TIME, DAY, ROOM).
+                course_allocation(SECTION, COURSE, INSTRUCTOR, TIME, DAY, ROOM).
 
 % Q2
 schedule_on_day(ROOM, DAY, SECTION, COURSE, INSTRUCTOR, TIME):-
-                      course_allocation(SECION, COURSE, INSTRUCTOR, TIME, DAY, ROOM).
+                      course_allocation(SECTION, COURSE, INSTRUCTOR, TIME, DAY, ROOM).
 
 % Q3
 time_slot(ROOM, TIME, DAY):-

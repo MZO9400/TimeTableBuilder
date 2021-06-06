@@ -1,7 +1,7 @@
 import pyswip
 
 prolog = pyswip.Prolog()
-prolog.consult('./knowledgebase.pl')
+prolog.consult('./knowledgebase/course_allocations.pl')
 
 
 def query(
