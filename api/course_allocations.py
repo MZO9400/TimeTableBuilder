@@ -1,5 +1,7 @@
 import pyswip
 
+from helpers.functions import str_to_time
+
 prolog = pyswip.Prolog()
 prolog.consult('./knowledgebase/course_allocations.pl')
 
@@ -20,3 +22,11 @@ def query(
 # Q1, Q2
 def schedule(class_name, day="DAY"):
     return query(room=class_name, day=day)
+
+
+# Q3
+def time_slots(class_name):
+    return [
+        {'TIME': str_to_time(r['TIME']), 'DAY': r['DAY']}
+        for r in query(room=class_name)
+    ]
