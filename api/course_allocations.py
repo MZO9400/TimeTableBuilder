@@ -34,3 +34,15 @@ def time_slots(class_name):
             ]
         )
     )
+
+
+# Q4
+def instructors(class_name):
+    return list(
+        set(
+            [
+                r['INSTRUCTOR']
+                for r in query(room=class_name)
+            ]
+        )
+    )
