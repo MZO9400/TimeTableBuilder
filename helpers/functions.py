@@ -17,7 +17,8 @@ def str_to_time(time):
         }
         return time_obj
     except (ValueError, IndexError, AttributeError):
-        print("Time string malformed")
+        if time_to_str(time):
+            return time
         return None
 
 
@@ -30,5 +31,6 @@ def time_to_str(time_obj):
             time_obj['end']['minutes'],
         )
     except (ValueError, IndexError, AttributeError):
-        print("Time object is malformed")
+        if str_to_time(time_obj):
+            return time_obj
         return None
