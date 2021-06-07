@@ -2,8 +2,18 @@ import pyswip
 
 from helpers.functions import str_to_time
 
+
+def consult():
+    try:
+        global prolog
+        prolog.consult('./knowledgebase/course_allocations.pl')
+        return True
+    except:
+        return False
+
+
 prolog = pyswip.Prolog()
-prolog.consult('./knowledgebase/course_allocations.pl')
+consult()
 
 
 def query(
