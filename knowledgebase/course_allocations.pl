@@ -50,3 +50,5 @@ course_allocation(bscs_1a, computer_programming, mahwish_pervaiz, time(:(10, 15)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % RUNTIME ENTRIES
+
+course_allocation(bscs_1a, computer_programming, mahwish_pervaiz, time(:(10, 15), :(11, 45)), tuesday, hl16).
