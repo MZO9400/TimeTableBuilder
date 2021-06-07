@@ -44,3 +44,9 @@ course_allocation(bscs_6b, technical_writing_and_presentation_skills, tipu_ismai
 course_allocation(bscs_6b, digital_image_processing_lab, mariyam_bibi, time(:(8, 45), :(11, 45)), thursday, oclab3).
 course_allocation(bscs_6b, technical_writing_and_presentation_skills, tipu_ismail, time(:(13, 15), :(14, 45)), thursday, xc3).
 course_allocation(bscs_6b, artificial_intelligence, faima_abbasi, time(:(14, 45), :(16, 15)), thursday, xc3).
+
+course_allocation(bscs_1a, computer_programming, mahwish_pervaiz, time(:(10, 15), :(11, 45)), tuesday, hl16).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RUNTIME ENTRIES
