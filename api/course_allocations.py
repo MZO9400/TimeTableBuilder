@@ -29,6 +29,25 @@ def query(
     return prolog.query(query_string)
 
 
+def insert(room, day, section, course, instructor, time):
+    try:
+        fact = "\ncourse_allocation({section}, {course}, {instructor}, {time}, {day}, {room}).\n"
+        with open('./knowledgebase/course_allocations.pl', 'a+') as kb:
+            kb.write(
+                fact.format(
+                    section=section.lower().replace(' ', '_'),
+                    course=course.lower().replace(' ', '_'),
+                    instructor=instructor.lower().replace(' ', '_'),
+                    time=time,
+                    day=day.lower(),
+                    room=room.lower()
+                )
+            )
+        return consult()
+    except IOError:
+        return -1
+
+
 # Q1, Q2
 def schedule(class_name, day="DAY"):
     return query(room=class_name, day=day)
