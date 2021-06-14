@@ -12,6 +12,7 @@ class TimeTable(Graphics):
     """
     Maps knowledgebase to python grid
     """
+
     def __init__(self, parent, data, window_title="Time Table"):
         """
 

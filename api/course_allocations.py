@@ -1,5 +1,7 @@
-import pyswip
 import os.path
+
+import pyswip
+
 from helpers.functions import str_to_time
 
 
@@ -9,6 +11,7 @@ class PrologWrapper:
     Wrapper functions around the prolog knowledgebase for querying, insertion and all things prolog
     Uses pyswip behind the scenes
     """
+
     def __init__(self, filename):
         """
         :param filename: Location for the file to read as knowledgebase

@@ -86,8 +86,8 @@ class AddNewRule(Graphics):
                 val
                 for val in clashes
                 if data['instructor'] == val['INSTRUCTOR'] or
-                data['room'] == val['ROOM'] or
-                data['section'] == val['SECTION']
+                   data['room'] == val['ROOM'] or
+                   data['section'] == val['SECTION']
             ]
             if len(clashes) > 0:
                 raise Exception("Clash occurred", "Please consult time table for more details")

@@ -1,6 +1,7 @@
-from graphics.main import TimeTableBuilder
-from api.course_allocations import PrologWrapper
 from tkinter import Tk
+
+from api.course_allocations import PrologWrapper
+from graphics.main import TimeTableBuilder
 
 KNOWLEDGEBASE = "knowledgebase/course_allocations.pl"
 

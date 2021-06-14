@@ -1,7 +1,7 @@
 import tkinter
 
-from graphics.timetable import TimeTable
 from graphics.addnewrule import AddNewRule
+from graphics.timetable import TimeTable
 from helpers.functions import verify_time
 
 

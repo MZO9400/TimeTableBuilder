@@ -6,6 +6,7 @@ class Graphics(metaclass=ABCMeta):
     """
     Generic base class for sub-windows
     """
+
     def __init__(self, parent, window_title):
         self.window = tkinter.Tk()
         self.parent = parent
