@@ -21,8 +21,8 @@ class AddNewRule:
         self.window.mainloop()
 
     def __init_window__(self):
-        self.window.columnconfigure(0, pad=6)
-        self.window.columnconfigure(1, pad=9)
+        self.window.columnconfigure(0, pad=10)
+        self.window.columnconfigure(1, pad=20)
 
         self.window.rowconfigure(0, pad=3)
         self.window.rowconfigure(1, pad=3)
@@ -30,7 +30,7 @@ class AddNewRule:
         self.window.rowconfigure(3, pad=3)
         self.window.rowconfigure(4, pad=3)
         self.window.rowconfigure(5, pad=3)
-        self.window.rowconfigure(6, pad=3)
+        self.window.rowconfigure(6, pad=15)
 
         self.labels = {}
         self.strings = {}
@@ -77,4 +77,3 @@ class AddNewRule:
             )
         except Exception as e:
             tkinter.messagebox.showerror(e.args[0], e.args[1])
-
