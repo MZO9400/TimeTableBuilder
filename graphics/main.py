@@ -19,6 +19,9 @@ class TimeTableBuilder:
             self.data = data()
 
             self.window.title('Time Table')
+            self.window.protocol("WM_DELETE_WINDOW", self.parent.delete_sub_window)
+
+        def start(self):
             self.window.mainloop()
 
     class AddNewRule:
@@ -28,6 +31,9 @@ class TimeTableBuilder:
             self.add_data = add_data
 
             self.window.title('Add Data')
+            self.window.protocol("WM_DELETE_WINDOW", self.parent.delete_sub_window)
+
+        def start(self):
             self.window.mainloop()
 
     def delete_sub_window(self):
