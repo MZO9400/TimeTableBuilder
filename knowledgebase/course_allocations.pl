@@ -13,7 +13,7 @@ course_allocation(bscs_6a, numerical_analysis, ambrina_kanwal, time(:(14, 45), :
 
 % WEDNESDAY
 course_allocation(bscs_6a, artificial_intelligence_lab, faima_abbasi, time(:(8, 45), :(11, 45)), wednesday, oclab3).
-course_allocation(bscs_6a, technical_writing_and_presentation_skills, tipu_ismail, time(:(8, 45), :(10, 15)), wednesday, xc3).
+course_allocation(bscs_6a, technical_writing_and_presentation_skills, tipu_ismail, time(:(13, 15), :(14, 45)), wednesday, xc3).
 
 % THURSDAY
 course_allocation(bscs_6a, artificial_intelligence, faima_abbasi, time(:(13, 15), :(14, 45)), thursday, xc4).
@@ -21,13 +21,13 @@ course_allocation(bscs_6a, technical_writing_and_presentation_skills, tipu_ismai
 course_allocation(bscs_6a, numerical_analysis, ambrina_kanwal, time(:(16, 15), :(17, 45)), thursday, xc1).
 
 % FRIDAY
-course_allocation(bscs_6a, web_engineering, we_teacher, time(:(10, 45), :(12, 45)), friday, hl11).
+course_allocation(bscs_6a, web_engineering, we_teacher, time(:(10, 15), :(13, 15)), friday, hl11).
 course_allocation(bscs_6a, web_engineering_lab, wel_teacher, time(:(14, 45), :(17, 45)), friday, oclab1).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % MONDAY
-course_allocation(bscs_6b, digital_image_processing, mariyam_bibi, time(:(10, 45), :(12, 15)), monday, hl11).
+course_allocation(bscs_6b, digital_image_processing, mariyam_bibi, time(:(10, 15), :(13, 15)), monday, hl11).
 course_allocation(bscs_6b, numerical_analysis, ambrina_kanwal, time(:(13, 15), :(14, 45)), monday, xc4).
 course_allocation(bscs_6b, artificial_intelligence_lab, faima_abbasi, time(:(14, 45), :(17, 45)), monday, oclab3).
 
