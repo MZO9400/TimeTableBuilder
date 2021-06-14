@@ -1,4 +1,8 @@
+import tkinter
+
 from graphics.Graphics import Graphics
+
+STICKY_ALL = tkinter.N + tkinter.W + tkinter.S + tkinter.E
 
 
 class TimeTable(Graphics):
