@@ -31,3 +31,13 @@ class TimeTableBuilder:
         if self.sub_window is not None:
             self.sub_window.window.destroy()
             self.sub_window = None
+
+    def create_time_table(self):
+        self.sub_window = self.TimeTable(self, self.get_time_table_data)
+
+    def create_add_new_rule(self):
+        self.sub_window = self.AddNewRule(self)
+
+    def get_time_table_data(self):
+        pass
+
