@@ -1,3 +1,6 @@
+DAYS = ('monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday')
+
+
 def str_to_time(time):
     try:
         time_arr = time.split('time')[1][1:-1].split(',')
@@ -50,3 +53,11 @@ def pretty_string_time(time_obj):
 
 def pretty_string_name(string):
     return string.replace('_', ' ').title()
+
+
+def verify_time(room, day, section, course, instructor, time):
+    return day in DAYS and time_to_str(time) is not None and type_checking([room, section, course, instructor], str)
+
+
+def type_checking(values, test_type):
+    return all([isinstance(type(value), test_type) for value in values])
