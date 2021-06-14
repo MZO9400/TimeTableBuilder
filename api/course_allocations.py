@@ -4,13 +4,25 @@ from helpers.functions import str_to_time
 
 
 class PrologWrapper:
+    """
+    Class PrologWrapper:
+    Wrapper functions around the prolog knowledgebase for querying, insertion and all things prolog
+    Uses pyswip behind the scenes
+    """
     def __init__(self, filename):
+        """
+        :param filename: Location for the file to read as knowledgebase
+        """
         self.__pl__ = pyswip.Prolog()
         if os.path.isfile(filename):
             self.file = filename
         self.reconsult()
 
     def reconsult(self):
+        """
+        Reconsult knowledgebase
+        :return: boolean
+        """
         try:
             self.__pl__.consult(self.file)
             return True
