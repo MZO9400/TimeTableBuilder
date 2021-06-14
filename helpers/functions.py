@@ -44,9 +44,21 @@ def time_to_str(time_obj):
 def time_input_to_str(input_str):
     try:
         start, end = input_str.split('-')
+        if not is_time_valid(start) or not is_time_valid(end):
+            raise Exception("Time is invalid")
         start_h, start_m = start.split(':')
         end_h, end_m = end.split(':')
         return 'time(:({}, {}), :({}, {}))'.format(start_h, start_m, end_h, end_m)
+    except:
+        return False
+
+
+def is_time_valid(time):
+    try:
+        hour, minutes = time.split(':')
+        hour = int(hour)
+        minutes = int(minutes)
+        return 0 <= hour < 24 and 0 <= minutes < 60
     except:
         return False
 
@@ -68,7 +80,8 @@ def pretty_string_name(string):
 
 
 def verify_time(room, day, section, course, instructor, time):
-    return day.lower() in DAYS and time_to_str(time) is not None and type_checking([room, section, course, instructor], str)
+    return day.lower() in DAYS and time_to_str(time) is not None and type_checking([room, section, course, instructor],
+                                                                                   str)
 
 
 def type_checking(values, test_type):
