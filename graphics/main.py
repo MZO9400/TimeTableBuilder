@@ -21,6 +21,7 @@ class TimeTableBuilder:
 
     def start(self):
         self.window.mainloop()
+        return self
 
     def __init_window__(self):
         self.window.columnconfigure(0, pad=3)
