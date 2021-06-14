@@ -35,6 +35,7 @@ class TimeTableBuilder:
             self.window,
             text="Display Time Table",
             width=50,
+            height=30,
             command=self.create_time_table)
         self.button_show_time_table.grid(row=1, column=1)
 
@@ -42,6 +43,7 @@ class TimeTableBuilder:
             self.window,
             text="Add new data",
             width=50,
+            height=30,
             command=self.create_time_table)
         self.button_add_new_rule.grid(row=1, column=2)
 
