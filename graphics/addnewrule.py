@@ -2,7 +2,7 @@ import tkinter
 import tkinter.messagebox
 
 from graphics.Graphics import Graphics
-from helpers.functions import time_input_to_str, DATA_LIST
+from helpers.functions import time_input_to_str, DATA_LIST, check_time_clash, str_to_time
 
 
 class AddNewRule(Graphics):
@@ -10,6 +10,7 @@ class AddNewRule(Graphics):
     Add New Rule class
     Adds an entry in timetable knowledgebase
     """
+
     def __init__(self, parent, add_data, window_title="Add Data"):
         self.add_data = add_data
         super().__init__(parent, window_title)
@@ -72,7 +73,24 @@ class AddNewRule(Graphics):
                     else:
                         data[label] = time
                 else:
-                    data[label] = self.entries[label].get()
+                    data[label] = self.entries[label].get().lower().replace(' ', '_')
+            knowledgebase = list(self.parent.get_time_table_data())
+            # filter clashes by time and day
+            clashes = [
+                val
+                for val in knowledgebase
+                if check_time_clash(str_to_time(data['time']), str_to_time(val['TIME'])) and data['day'] == val['DAY']
+            ]
+            # filter by whether instructor, room, or class is busy
+            clashes = [
+                val
+                for val in clashes
+                if data['instructor'] == val['INSTRUCTOR'] or
+                data['room'] == val['ROOM'] or
+                data['section'] == val['SECTION']
+            ]
+            if len(clashes) > 0:
+                raise Exception("Clash occurred", "Please consult time table for more details")
             self.parent.course_alloc.insert(
                 data['room'],
                 data['day'],
