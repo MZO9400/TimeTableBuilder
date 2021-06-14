@@ -41,7 +41,7 @@ class TimeTableBuilder:
             text="Add new data",
             width=50,
             height=30,
-            command=self.create_time_table)
+            command=self.create_add_new_rule)
         self.button_add_new_rule.grid(row=1, column=2)
 
     def on_exit(self):
