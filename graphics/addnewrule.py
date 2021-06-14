@@ -6,11 +6,23 @@ from helpers.functions import time_input_to_str, DATA_LIST
 
 
 class AddNewRule(Graphics):
+    """
+    Add New Rule class
+    Adds an entry in timetable knowledgebase
+    """
     def __init__(self, parent, add_data, window_title="Add Data"):
         self.add_data = add_data
         super().__init__(parent, window_title)
 
     def __init_window__(self):
+        """
+        Maps entries from DATA_LIST to GUI,
+        elements are accessible through:
+        self.labels for labels,
+        self.strings for stringvars,
+        self.entries for entries
+        :return: None
+        """
         self.window.columnconfigure(0, pad=10)
         self.window.columnconfigure(1, pad=20)
 
@@ -43,6 +55,10 @@ class AddNewRule(Graphics):
         self.insert_button.grid(row=7, column=1, columnspan=3)
 
     def save_data(self):
+        """
+        Takes input from entries, checks for errors, and then adds to knowledgebase
+        :return: None
+        """
         data = {}
         try:
             for index, label in enumerate(DATA_LIST):
