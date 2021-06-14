@@ -25,6 +25,7 @@ class TimeTableBuilder:
         def __init__(self, parent, add_data):
             self.window = tkinter.Tk()
             self.parent = parent
+            self.add_data = add_data
 
             self.window.title('Add Data')
             self.window.mainloop()
