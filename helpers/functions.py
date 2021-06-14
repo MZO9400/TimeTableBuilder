@@ -1,3 +1,5 @@
+import threading
+
 DAYS = ('monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday')
 
 
@@ -61,3 +63,10 @@ def verify_time(room, day, section, course, instructor, time):
 
 def type_checking(values, test_type):
     return all([isinstance(type(value), test_type) for value in values])
+
+
+def run_thread(func, args=None):
+    if args is None:
+        args = []
+    th = threading.Thread(target=func, args=args)
+    th.start()
