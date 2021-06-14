@@ -1,5 +1,7 @@
 import tkinter
 
+from graphics.timetable import TimeTable
+from graphics.addnewrule import AddNewRule
 from helpers.functions import verify_time
 
 
@@ -13,34 +15,13 @@ class TimeTableBuilder:
         self.button_show_time_table = None
         self.button_add_new_rule = None
 
+        self.TimeTable = TimeTable
+        self.AddNewRule = AddNewRule
+
         self.__init_window__()
 
         self.window.protocol("WM_DELETE_WINDOW", self.on_exit)
         self.window.mainloop()
-
-    class TimeTable:
-        def __init__(self, parent, data):
-            self.window = tkinter.Tk()
-            self.parent = parent
-            self.data = data()
-
-            self.window.title('Time Table')
-            self.window.protocol("WM_DELETE_WINDOW", self.parent.delete_sub_window)
-
-        def start(self):
-            self.window.mainloop()
-
-    class AddNewRule:
-        def __init__(self, parent, add_data):
-            self.window = tkinter.Tk()
-            self.parent = parent
-            self.add_data = add_data
-
-            self.window.title('Add Data')
-            self.window.protocol("WM_DELETE_WINDOW", self.parent.delete_sub_window)
-
-        def start(self):
-            self.window.mainloop()
 
     def __init_window__(self):
         self.window.columnconfigure(0, pad=3)
