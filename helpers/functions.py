@@ -4,6 +4,21 @@ DAYS = ('monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sun
 DATA_LIST = ('room', 'day', 'section', 'course', 'instructor', 'time')
 
 
+def time_comparator(t):
+    return t['hours'] * 60 + t['minutes']
+
+
+def get_times(data):
+    time_objs = map(lambda r: str_to_time(r['TIME']), data)
+    times = []
+    for time in time_objs:
+        if time['start'] not in times:
+            times += [time['start']]
+        if time['end'] not in times:
+            times += [time['end']]
+    return sorted(times, key=time_comparator)
+
+
 def str_to_time(time):
     try:
         time_arr = time.split('time')[1][1:-1].split(',')
