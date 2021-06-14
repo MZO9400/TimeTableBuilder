@@ -10,6 +10,10 @@ class TimeTableBuilder:
         self.window.title(window_title)
 
         self.sub_window = None
+        self.button_show_time_table = None
+        self.button_add_new_rule = None
+
+        self.__init_window__()
 
         self.window.protocol("WM_DELETE_WINDOW", self.on_exit)
         self.window.mainloop()
@@ -37,6 +41,26 @@ class TimeTableBuilder:
 
         def start(self):
             self.window.mainloop()
+
+    def __init_window__(self):
+        self.window.columnconfigure(0, pad=3)
+        self.window.columnconfigure(1, pad=3)
+
+        self.window.rowconfigure(0, pad=3)
+
+        self.button_show_time_table = tkinter.Button(
+            self.window,
+            text="Display Time Table",
+            width=50,
+            command=self.create_time_table)
+        self.button_show_time_table.grid(row=1, column=1)
+
+        self.button_add_new_rule = tkinter.Button(
+            self.window,
+            text="Add new data",
+            width=50,
+            command=self.create_time_table)
+        self.button_add_new_rule.grid(row=1, column=2)
 
     def on_exit(self):
         self.delete_sub_window()
