@@ -9,22 +9,44 @@ PAD = 0
 
 
 class TimeTable(Graphics):
+    """
+    Maps knowledgebase to python grid
+    """
     def __init__(self, parent, data, window_title="Time Table"):
+        """
+
+        :param parent: parent window
+        :param data: callback to fetch data from knowledgebase
+        :param window_title: Title
+        """
         self.data = data
         super().__init__(parent, window_title)
 
     def __init_window__(self):
+        """
+        Timetable is a bunch of labels,
+        Labels are of three types:
+            days,
+            times,
+            classes
+        :return: None
+        """
         self.labels = {'days': {}, 'times': {}, 'classes': {}}
         data = list(self.data())
 
         classes = set(map(lambda cl: cl['SECTION'].upper().replace('_', ' '), data))
 
+        # Dropdown with class/section name
         self.drop_down_var = tkinter.StringVar(self.window)
         self.drop_down_var.set("CLASS")
         self.drop_down = tkinter.OptionMenu(self.window, self.drop_down_var, *classes, command=self.on_class_change)
         self.drop_down.grid(row=1, column=1, ipadx=IPAD, ipady=IPAD, sticky=STICKY_ALL)
 
     def destroy_all(self):
+        """
+        Destroy all elements
+        :return: boolean
+        """
         try:
             labels_types = self.labels
             for label_type in list(labels_types):
@@ -37,6 +59,11 @@ class TimeTable(Graphics):
             return False
 
     def on_class_change(self, selected_option):
+        """
+        Destroys and remaps new timetable with its data
+        :param selected_option: String for selected class/section
+        :return: None
+        """
         data = list(self.data(selected_option.lower().replace(' ', '_')))
         time_list = get_times(data)
         times = [
@@ -86,6 +113,11 @@ class TimeTable(Graphics):
             )
 
     def get_grid_info(self, data):
+        """
+        Calculates the position of an element in grid given the day and time
+        :param data: A prolog query response element
+        :return: Grid info considering element location
+        """
         grid_info = {}
         row = self.labels['days'][data['DAY']].grid_info()
         grid_info['row'] = row['row']
