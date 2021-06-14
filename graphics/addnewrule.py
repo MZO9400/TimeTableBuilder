@@ -7,8 +7,8 @@ from helpers.functions import time_input_to_str, DATA_LIST
 
 class AddNewRule(Graphics):
     def __init__(self, parent, add_data, window_title="Add Data"):
-        super().__init__(parent, window_title)
         self.add_data = add_data
+        super().__init__(parent, window_title)
 
     def __init_window__(self):
         self.window.columnconfigure(0, pad=10)

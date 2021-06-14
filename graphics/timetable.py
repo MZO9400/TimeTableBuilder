@@ -3,6 +3,7 @@ from graphics.Graphics import Graphics
 
 class TimeTable(Graphics):
     def __init__(self, parent, data, window_title="Time Table"):
+        self.data = data
         super().__init__(parent, window_title)
         self.data = data
 
