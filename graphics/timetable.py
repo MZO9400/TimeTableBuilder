@@ -38,7 +38,14 @@ class TimeTable(Graphics):
 
     def on_class_change(self, selected_option):
         data = list(self.data(selected_option.lower().replace(' ', '_')))
-        times = ["{}:{}".format(time['hours'], time['minutes']) for time in get_times(data)]
+        time_list = get_times(data)
+        times = [
+            "{}:{}-{}:{}".format(
+                time_list[idx]['hours'], time_list[idx]['minutes'],
+                time_list[idx + 1]['hours'], time_list[idx + 1]['minutes']
+            )
+            for idx in range(len(time_list) - 1)
+        ]
 
         self.destroy_all()
         for index, day in enumerate(DAYS, start=1):
@@ -87,6 +94,11 @@ class TimeTable(Graphics):
         time = str_to_time(data['TIME'])
         time_start = "{}:{}".format(time['start']['hours'], time['start']['minutes'])
         time_end = "{}:{}".format(time['end']['hours'], time['end']['minutes'])
+
+        times = list(self.labels['times'].keys())
+
+        time_start = [i for i in times if i.startswith(time_start)][0]
+        time_end = [i for i in times if i.endswith(time_end)][0]
 
         col_start = self.labels['times'][time_start].grid_info()
         col_end = self.labels['times'][time_end].grid_info()
