@@ -41,6 +41,16 @@ def time_to_str(time_obj):
         return None
 
 
+def time_input_to_str(input_str):
+    try:
+        start, end = input_str.split('-')
+        start_h, start_m = start.split(':')
+        end_h, end_m = end.split(':')
+        return 'time(:({}, {}), :({}, {}))'.format(start_h, start_m, end_h, end_m)
+    except:
+        return False
+
+
 def pretty_string_time(time_obj):
     try:
         return '{}:{} - {}:{}'.format(
