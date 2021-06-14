@@ -15,9 +15,6 @@ class TimeTableBuilder:
         self.button_show_time_table = None
         self.button_add_new_rule = None
 
-        self.TimeTable = TimeTable
-        self.AddNewRule = AddNewRule
-
         self.__init_window__()
 
         self.window.protocol("WM_DELETE_WINDOW", self.on_exit)
@@ -58,12 +55,12 @@ class TimeTableBuilder:
 
     def create_time_table(self):
         self.delete_sub_window()
-        self.sub_window = self.TimeTable(self, self.get_time_table_data)
+        self.sub_window = TimeTable(self, self.get_time_table_data)
         self.sub_window.start()
 
     def create_add_new_rule(self):
         self.delete_sub_window()
-        self.sub_window = self.AddNewRule(self, self.add_new_rule)
+        self.sub_window = AddNewRule(self, self.add_new_rule)
         self.sub_window.start()
 
     def get_time_table_data(self):
