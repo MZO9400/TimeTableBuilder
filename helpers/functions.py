@@ -171,3 +171,24 @@ def run_thread(func, args=None):
         args = []
     th = threading.Thread(target=func, args=args)
     th.start()
+
+
+def check_time_clash(time1, time2):
+    """
+    Checks if two times clash between each other
+    :param time1: time object
+    :param time2: time object
+    :return:
+    """
+    t1 = {
+        'start': time_comparator(time1['start']),
+        'end': time_comparator(time1['end'])
+    }
+    t2 = {
+        'start': time_comparator(time2['start']),
+        'end': time_comparator(time2['end'])
+    }
+    t1 = set(range(t1['start'], t1['end']))
+    t2 = set(range(t2['start'], t2['end']))
+
+    return len(t1.intersection(t2)) != 0
