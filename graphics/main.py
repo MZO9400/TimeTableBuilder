@@ -1,5 +1,7 @@
 import tkinter
 
+from helpers.functions import verify_time
+
 
 class TimeTableBuilder:
     def __init__(self, window, course_alloc, window_title="Time Table Builder"):
@@ -20,7 +22,7 @@ class TimeTableBuilder:
             self.window.mainloop()
 
     class AddNewRule:
-        def __init__(self, parent):
+        def __init__(self, parent, add_data):
             self.window = tkinter.Tk()
             self.parent = parent
 
@@ -36,8 +38,11 @@ class TimeTableBuilder:
         self.sub_window = self.TimeTable(self, self.get_time_table_data)
 
     def create_add_new_rule(self):
-        self.sub_window = self.AddNewRule(self)
+        self.sub_window = self.AddNewRule(self, self.add_new_rule)
 
     def get_time_table_data(self):
         pass
 
+    def add_new_rule(self, room, day, section, course, instructor, time):
+        if verify_time(room, day, section, course, instructor, time):
+            self.course_alloc.insert(room, day, section, course, instructor, time)
