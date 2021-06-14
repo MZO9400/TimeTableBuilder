@@ -68,7 +68,7 @@ def pretty_string_name(string):
 
 
 def verify_time(room, day, section, course, instructor, time):
-    return day in DAYS and time_to_str(time) is not None and type_checking([room, section, course, instructor], str)
+    return day.lower() in DAYS and time_to_str(time) is not None and type_checking([room, section, course, instructor], str)
 
 
 def type_checking(values, test_type):
