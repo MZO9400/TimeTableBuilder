@@ -64,8 +64,9 @@ class TimeTableBuilder:
         self.sub_window = AddNewRule(self, self.add_new_rule)
         self.sub_window.start()
 
-    def get_time_table_data(self):
-        return self.course_alloc.query()
+    def get_time_table_data(self, section=None):
+        query = self.course_alloc.query
+        return query(section=section) if section else query()
 
     def add_new_rule(self, room, day, section, course, instructor, time):
         if verify_time(room, day, section, course, instructor, time):
