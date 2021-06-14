@@ -36,6 +36,10 @@ class TimeTableBuilder:
         def start(self):
             self.window.mainloop()
 
+    def on_exit(self):
+        self.delete_sub_window()
+        self.window.destroy()
+
     def delete_sub_window(self):
         if self.sub_window is not None:
             self.sub_window.window.destroy()
