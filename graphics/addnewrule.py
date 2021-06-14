@@ -67,7 +67,14 @@ class AddNewRule:
                         data[label] = time
                 else:
                     data[label] = self.entries[label].get()
-            return data
+            self.parent.course_alloc.insert(
+                data['room'],
+                data['day'],
+                data['section'],
+                data['course'],
+                data['instructor'],
+                data['time']
+            )
         except Exception as e:
             tkinter.messagebox.showerror(e.args[0], e.args[1])
 
