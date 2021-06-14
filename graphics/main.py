@@ -68,4 +68,5 @@ class TimeTableBuilder:
 
     def add_new_rule(self, room, day, section, course, instructor, time):
         if verify_time(room, day, section, course, instructor, time):
-            self.course_alloc.insert(room, day, section, course, instructor, time)
+            return self.course_alloc.insert(room, day, section, course, instructor, time)
+        return False
