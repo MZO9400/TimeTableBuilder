@@ -8,9 +8,11 @@ class TimeTableBuilder:
         self.window = window
         self.course_alloc = course_alloc
         self.window.title(window_title)
-        self.window.mainloop()
 
         self.sub_window = None
+
+        self.window.protocol("WM_DELETE_WINDOW", self.on_exit)
+        self.window.mainloop()
 
     class TimeTable:
         def __init__(self, parent, data):
