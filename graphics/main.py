@@ -18,3 +18,11 @@ class TimeTableBuilder:
 
             self.window.title('Time Table')
             self.window.mainloop()
+
+    class AddNewRule:
+        def __init__(self, parent):
+            self.window = tkinter.Tk()
+            self.parent = parent
+
+            self.window.title('Add Data')
+            self.window.mainloop()
