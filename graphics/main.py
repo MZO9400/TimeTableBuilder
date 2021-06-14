@@ -21,6 +21,8 @@ class TimeTableBuilder:
         self.__init_window__()
 
         self.window.protocol("WM_DELETE_WINDOW", self.on_exit)
+
+    def start(self):
         self.window.mainloop()
 
     def __init_window__(self):
