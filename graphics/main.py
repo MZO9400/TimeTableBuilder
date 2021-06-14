@@ -43,9 +43,11 @@ class TimeTableBuilder:
 
     def create_time_table(self):
         self.sub_window = self.TimeTable(self, self.get_time_table_data)
+        self.sub_window.start()
 
     def create_add_new_rule(self):
         self.sub_window = self.AddNewRule(self, self.add_new_rule)
+        self.sub_window.start()
 
     def get_time_table_data(self):
         pass
