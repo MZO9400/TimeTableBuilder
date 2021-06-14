@@ -1,24 +1,14 @@
 import tkinter
 import tkinter.messagebox
 
-from helpers.functions import time_input_to_str
+from graphics.Graphics import Graphics
+from helpers.functions import time_input_to_str, DATA_LIST
 
 
-class AddNewRule:
-    def __init__(self, parent, add_data):
-        self.window = tkinter.Tk()
-        self.parent = parent
+class AddNewRule(Graphics):
+    def __init__(self, parent, add_data, window_title="Add Data"):
+        super().__init__(parent, window_title)
         self.add_data = add_data
-
-        self.window.title('Add Data')
-        self.window.protocol("WM_DELETE_WINDOW", self.parent.delete_sub_window)
-
-        self.data_list = ('room', 'day', 'section', 'course', 'instructor', 'time')
-
-        self.__init_window__()
-
-    def start(self):
-        self.window.mainloop()
 
     def __init_window__(self):
         self.window.columnconfigure(0, pad=10)
@@ -35,7 +25,7 @@ class AddNewRule:
         self.labels = {}
         self.strings = {}
         self.entries = {}
-        for index, label in enumerate(self.data_list):
+        for index, label in enumerate(DATA_LIST):
             self.labels[label] = tkinter.Label(
                 self.window,
                 justify=tkinter.RIGHT,
@@ -55,7 +45,7 @@ class AddNewRule:
     def save_data(self):
         data = {}
         try:
-            for index, label in enumerate(self.data_list):
+            for index, label in enumerate(DATA_LIST):
                 entry_input = self.entries[label].get()
                 if entry_input == '':
                     raise Exception("{} is empty".format(label), "Please fill all fields")

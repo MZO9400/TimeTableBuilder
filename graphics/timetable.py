@@ -1,14 +1,10 @@
-import tkinter
+from graphics.Graphics import Graphics
 
 
-class TimeTable:
-    def __init__(self, parent, data):
-        self.window = tkinter.Tk()
-        self.parent = parent
-        self.data = data()
+class TimeTable(Graphics):
+    def __init__(self, parent, data, window_title="Time Table"):
+        super().__init__(parent, window_title)
+        self.data = data
 
-        self.window.title('Time Table')
-        self.window.protocol("WM_DELETE_WINDOW", self.parent.delete_sub_window)
-
-    def start(self):
-        self.window.mainloop()
+    def __init_window__(self):
+        pass

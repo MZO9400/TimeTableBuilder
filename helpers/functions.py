@@ -1,6 +1,7 @@
 import threading
 
 DAYS = ('monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday')
+DATA_LIST = ('room', 'day', 'section', 'course', 'instructor', 'time')
 
 
 def str_to_time(time):
