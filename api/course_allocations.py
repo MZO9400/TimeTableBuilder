@@ -1,6 +1,7 @@
 import os.path
 
 import pyswip
+from pyswip.prolog import PrologError
 
 from helpers.functions import str_to_time
 
@@ -84,3 +85,15 @@ class PrologWrapper:
                 ]
             )
         )
+
+    def is_query_valid(self, query):
+        try:
+            self.__pl__.assertz(query)
+            return True
+        except PrologError:
+            return False
+
+    def insert_raw(self, query):
+        with open(self.file, 'a+') as kb:
+            kb.write(query)
+        return self.reconsult()

@@ -1,5 +1,6 @@
 import tkinter
 import tkinter.messagebox
+from tkinter import simpledialog
 
 from graphics.Graphics import Graphics
 from helpers.functions import time_input_to_str, DATA_LIST, check_time_clash, str_to_time
@@ -53,7 +54,16 @@ class AddNewRule(Graphics):
             self.entries[label].grid(sticky=tkinter.W, row=index, column=2)
 
         self.insert_button = tkinter.Button(self.window, command=self.save_data, text='INSERT')
-        self.insert_button.grid(row=7, column=1, columnspan=3)
+        self.insert_button.grid(row=7, column=0, columnspan=2)
+
+        self.insert_raw = tkinter.Button(self.window, command=self.popup_raw_insert, text='RAW QUERY')
+        self.insert_raw.grid(row=7, column=2, columnspan=2)
+
+    def popup_raw_insert(self):
+        inp = simpledialog.askstring(title="RAW", prompt="Please insert your rule/fact:")
+        if inp:
+            if self.parent.course_alloc.is_query_valid("{}".format(inp)):
+                self.parent.course_alloc.insert_raw(inp + '.')
 
     def save_data(self):
         """
