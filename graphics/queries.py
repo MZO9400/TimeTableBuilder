@@ -1,23 +1,25 @@
 import tkinter
 import tkinter.messagebox
 
+from api.course_allocations import PrologWrapper
 from graphics.Graphics import Graphics
 from helpers.functions import query_builder, prettify_query
 
 
 class Queries(Graphics):
-    def __init__(self, parent):
+    def __init__(self, parent, course_allocator, window_title="Queries"):
+        if not isinstance(course_allocator, PrologWrapper):
+            raise "Course allocator is invalid"
+
+        self.queries = query_builder(course_allocator)
         self.dropdown = None
         self.dropdown_variable = None
         self.output = None
         self.output_variable = None
         self.query_index = None
-
-        self.queries = query_builder(parent.course_alloc)
-
         self.inputs = []
 
-        super().__init__(parent=parent)
+        super().__init__(parent=parent, window_title=window_title)
 
     def __init_window__(self):
         self.window.rowconfigure(0, pad=10)

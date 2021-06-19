@@ -75,7 +75,7 @@ class TimeTableBuilder(Graphics):
 
     def create_queries(self):
         self.delete_sub_window()
-        self.sub_window = Queries(self)
+        self.sub_window = Queries(self, self.course_alloc)
         self.sub_window.start()
 
     def get_time_table_data(self, section=None):
