@@ -2,6 +2,7 @@ import tkinter
 
 from graphics.Graphics import Graphics
 from graphics.addnewrule import AddNewRule
+from graphics.queries import Queries
 from graphics.timetable import TimeTable
 from helpers.functions import verify_time
 
@@ -50,8 +51,7 @@ class TimeTableBuilder(Graphics):
             text="Queries",
             width=BUTTON_WIDTH * 2,
             height=BUTTON_HEIGHT,
-            command=lambda: True
-        )
+            command=self.create_queries)
         self.button_queries.grid(row=2, column=1, columnspan=2)
 
     def on_exit(self):
@@ -71,6 +71,11 @@ class TimeTableBuilder(Graphics):
     def create_add_new_rule(self):
         self.delete_sub_window()
         self.sub_window = AddNewRule(self, self.add_new_rule)
+        self.sub_window.start()
+
+    def create_queries(self):
+        self.delete_sub_window()
+        self.sub_window = Queries(self)
         self.sub_window.start()
 
     def get_time_table_data(self, section=None):
