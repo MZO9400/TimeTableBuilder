@@ -66,9 +66,8 @@ class Queries(Graphics):
     def run_query(self):
         data = list(map(lambda value: value['entry'].get().lower(), self.inputs))
         if self.validate_data(data):
-            data_generator = self.queries[self.query_index]['query'](
-                *map(lambda val: val if val != '' else None, data)
-            )
+            data.remove('')
+            data_generator = self.queries[self.query_index]['query'](*data)
             output = prettify_query(list(data_generator))
             if output:
                 tkinter.messagebox.showinfo("Output", output)
