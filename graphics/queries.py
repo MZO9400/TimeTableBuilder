@@ -64,7 +64,7 @@ class Queries(Graphics):
             inp.grid(row=index, column=2)
 
     def run_query(self):
-        data = list(map(lambda value: value['entry'].get(), self.inputs))
+        data = list(map(lambda value: value['entry'].get().lower(), self.inputs))
         if self.validate_data(data):
             data_generator = self.queries[self.query_index]['query'](
                 *map(lambda val: val if val != '' else None, data)
