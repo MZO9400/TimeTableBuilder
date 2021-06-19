@@ -2,7 +2,7 @@ import tkinter
 import tkinter.messagebox
 
 from graphics.Graphics import Graphics
-from helpers.functions import query_builder
+from helpers.functions import query_builder, prettify_query
 
 
 class Queries(Graphics):
@@ -67,7 +67,11 @@ class Queries(Graphics):
             data_generator = self.queries[self.query_index]['query'](
                 *map(lambda val: val if val != '' else None, data)
             )
-            self.pretty_show(list(data_generator))
+            output = prettify_query(list(data_generator))
+            if output:
+                tkinter.messagebox.showinfo("Output", output)
+            else:
+                tkinter.messagebox.showerror("Unknown error occurred", "Could not show output at this time")
         else:
             tkinter.messagebox.showerror("Missing fields", "Please fill all required fields")
 
@@ -84,6 +88,3 @@ class Queries(Graphics):
             if datum == '' and self.queries[self.query_index]['inputs'][index]['required'] is True:
                 return False
         return True
-
-    def pretty_show(self, data):
-        print(data)
