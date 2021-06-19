@@ -1,27 +1,23 @@
 import tkinter
 
+from graphics.Graphics import Graphics
 from graphics.addnewrule import AddNewRule
 from graphics.timetable import TimeTable
 from helpers.functions import verify_time
 
 
-class TimeTableBuilder:
-    def __init__(self, window, course_alloc, window_title="Time Table Builder"):
-        self.window = window
+class TimeTableBuilder(Graphics):
+    def __init__(self, course_alloc, window_title="Time Table Builder"):
+        super().__init__(window_title=window_title)
+
         self.course_alloc = course_alloc
-        self.window.title(window_title)
 
         self.sub_window = None
         self.button_show_time_table = None
         self.button_add_new_rule = None
 
-        self.__init_window__()
 
         self.window.protocol("WM_DELETE_WINDOW", self.on_exit)
-
-    def start(self):
-        self.window.mainloop()
-        return self
 
     def __init_window__(self):
         self.window.columnconfigure(0, pad=3)
