@@ -20,10 +20,10 @@ class TimeTableBuilder(Graphics):
         self.window.protocol("WM_DELETE_WINDOW", self.on_exit)
 
     def __init_window__(self):
-        self.window.columnconfigure(0, pad=3)
-        self.window.columnconfigure(1, pad=3)
+        self.window.columnconfigure(0)
+        self.window.columnconfigure(1)
 
-        self.window.rowconfigure(0, pad=3)
+        self.window.rowconfigure(1)
 
         self.button_show_time_table = tkinter.Button(
             self.window,
