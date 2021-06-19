@@ -5,6 +5,9 @@ from graphics.addnewrule import AddNewRule
 from graphics.timetable import TimeTable
 from helpers.functions import verify_time
 
+BUTTON_WIDTH = 25
+BUTTON_HEIGHT = 10
+
 
 class TimeTableBuilder(Graphics):
     def __init__(self, course_alloc, window_title="Time Table Builder"):
@@ -28,16 +31,16 @@ class TimeTableBuilder(Graphics):
         self.button_show_time_table = tkinter.Button(
             self.window,
             text="Display Time Table",
-            width=50,
-            height=30,
+            width=BUTTON_WIDTH,
+            height=BUTTON_HEIGHT,
             command=self.create_time_table)
         self.button_show_time_table.grid(row=1, column=1)
 
         self.button_add_new_rule = tkinter.Button(
             self.window,
             text="Add new data",
-            width=50,
-            height=30,
+            width=BUTTON_WIDTH,
+            height=BUTTON_HEIGHT,
             command=self.create_add_new_rule)
         self.button_add_new_rule.grid(row=1, column=2)
 
