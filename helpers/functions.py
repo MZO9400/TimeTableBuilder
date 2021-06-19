@@ -214,6 +214,17 @@ def prettify_query(data):
 
 
 def query_builder(course_allocation):
+    """
+    Creates a query database on call
+    To add a new query: add another dictionary at the end of the current list, sample:
+    {
+        'text': str,
+        'query': callable,
+        'inputs': [{'name': str, 'required': boolean}]
+    }
+    :param course_allocation: Object of type PrologWrapper
+    :return: List of query dictionaries
+    """
     return [
         {
             'text': "Schedule for class",
