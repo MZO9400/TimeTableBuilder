@@ -195,6 +195,11 @@ def check_time_clash(time1, time2):
 
 
 def prettify_query(data):
+    """
+    Takes a PrologWrapper class function's output and returns a pretty, human-readable version of it
+    :param data: PrologWrapper class function output
+    :return: None, str: Pretty string of a PrologWrapper function
+    """
     try:
         final_string = ''
         for value in data:
