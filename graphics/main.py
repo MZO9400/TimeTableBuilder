@@ -18,7 +18,7 @@ class TimeTableBuilder(Graphics):
         self.sub_window = None
         self.button_show_time_table = None
         self.button_add_new_rule = None
-
+        self.button_queries = None
 
         self.window.protocol("WM_DELETE_WINDOW", self.on_exit)
 
@@ -27,6 +27,7 @@ class TimeTableBuilder(Graphics):
         self.window.columnconfigure(1)
 
         self.window.rowconfigure(1)
+        self.window.rowconfigure(0)
 
         self.button_show_time_table = tkinter.Button(
             self.window,
@@ -43,6 +44,15 @@ class TimeTableBuilder(Graphics):
             height=BUTTON_HEIGHT,
             command=self.create_add_new_rule)
         self.button_add_new_rule.grid(row=1, column=2)
+
+        self.button_queries = tkinter.Button(
+            self.window,
+            text="Queries",
+            width=BUTTON_WIDTH * 2,
+            height=BUTTON_HEIGHT,
+            command=lambda: True
+        )
+        self.button_queries.grid(row=2, column=1, columnspan=2)
 
     def on_exit(self):
         self.delete_sub_window()
