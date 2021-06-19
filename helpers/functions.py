@@ -194,6 +194,25 @@ def check_time_clash(time1, time2):
     return len(t1.intersection(t2)) != 0
 
 
+def prettify_query(data):
+    try:
+        final_string = ''
+        for value in data:
+            if isinstance(value, str):
+                final_string += "{}\n".format(value.upper().replace("_", " "))
+            elif isinstance(value, dict):
+                for key, val in value.items():
+                    if key == 'TIME':
+                        final_string += "{}: {}\n".format(key, pretty_string_time(str_to_time(val)))
+                        continue
+                    if isinstance(val, str):
+                        final_string += "{}: {}\n".format(key, val.upper().replace('_', ' '))
+            final_string += "\n\n"
+        return final_string
+    except:
+        return None
+
+
 def query_builder(course_allocation):
     return [
         {
