@@ -192,3 +192,41 @@ def check_time_clash(time1, time2):
     t2 = set(range(t2['start'], t2['end']))
 
     return len(t1.intersection(t2)) != 0
+
+
+def query_builder(course_allocation):
+    return [
+        {
+            'text': "Schedule for class",
+            'query': lambda _class, _day="DAY": course_allocation.schedule(_class, _day),
+            'inputs': [
+                {
+                    'name': 'Class',
+                    'required': True
+                }, {
+                    'name': 'Day',
+                    'required': False
+                }
+            ]
+        },
+        {
+            'text': "Time while class is busy",
+            'query': lambda _class: course_allocation.time_slots(_class),
+            'inputs': [
+                {
+                    'name': 'Class',
+                    'required': True
+                }
+            ],
+        },
+        {
+            'text': "Instructors for given room",
+            'query': lambda _class: course_allocation.instructors(_class),
+            'inputs': [
+                {
+                    'name': 'Class',
+                    'required': True
+                }
+            ]
+        }
+    ]
