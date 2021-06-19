@@ -2,7 +2,7 @@ import tkinter
 import tkinter.messagebox
 from tkinter import simpledialog
 
-from graphics.Graphics import Graphics
+from graphics import Graphics
 from helpers.functions import time_input_to_str, DATA_LIST, check_time_clash, str_to_time
 
 

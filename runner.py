@@ -1,5 +1,5 @@
 from api.course_allocations import PrologWrapper
-from graphics.main import TimeTableBuilder
+from graphics import TimeTableBuilder
 
 KNOWLEDGEBASE = "knowledgebase/course_allocations.pl"
 

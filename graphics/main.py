@@ -1,9 +1,9 @@
 import tkinter
 
-from graphics.Graphics import Graphics
-from graphics.addnewrule import AddNewRule
-from graphics.queries import Queries
-from graphics.timetable import TimeTable
+from graphics import Graphics
+from graphics import AddNewRule
+from graphics import Queries
+from graphics import TimeTable
 from helpers.functions import verify_time
 
 BUTTON_WIDTH = 25

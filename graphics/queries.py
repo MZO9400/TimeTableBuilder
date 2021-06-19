@@ -2,7 +2,7 @@ import tkinter
 import tkinter.messagebox
 
 from api.course_allocations import PrologWrapper
-from graphics.Graphics import Graphics
+from graphics import Graphics
 from helpers.functions import query_builder, prettify_query
 
 

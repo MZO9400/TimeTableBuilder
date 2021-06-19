@@ -1,6 +1,6 @@
 import tkinter
 
-from graphics.Graphics import Graphics
+from graphics import Graphics
 from helpers.functions import DAYS, get_times, str_to_time
 
 STICKY_ALL = tkinter.N + tkinter.W + tkinter.S + tkinter.E
