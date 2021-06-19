@@ -20,9 +20,10 @@ class Graphics(metaclass=ABCMeta):
     def start(self):
         """
         API to run main loop
-        :return: None
+        :return: self
         """
         self.window.mainloop()
+        return self
 
     @abstractmethod
     def __init_window__(self):
