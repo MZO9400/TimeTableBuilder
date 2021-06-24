@@ -82,7 +82,8 @@ class Queries(Graphics):
         """
         data = list(map(lambda value: value['entry'].get().lower(), self.inputs))
         if self.validate_data(data):
-            data.remove('')
+            if '' in data:
+                data.remove('')
             data_generator = self.queries[self.query_index]['query'](*data)  # call the lambda
             output = prettify_query(list(data_generator))
             if output:
