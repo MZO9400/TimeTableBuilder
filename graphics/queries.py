@@ -86,10 +86,7 @@ class Queries(Graphics):
                 data.remove('')
             data_generator = self.queries[self.query_index]['query'](*data)  # call the lambda
             output = prettify_query(list(data_generator))
-            if output:
-                tkinter.messagebox.showinfo("Output", output)
-            else:
-                tkinter.messagebox.showerror("Unknown error occurred", "Could not show output at this time")
+            tkinter.messagebox.showinfo("Output", output)
         else:
             tkinter.messagebox.showerror("Missing fields", "Please fill all required fields")
 
